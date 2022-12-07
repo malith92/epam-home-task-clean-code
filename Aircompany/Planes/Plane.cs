@@ -2,48 +2,51 @@
 
 namespace Aircompany.Planes
 {
+    /// <summary>
+    /// Base class for all plane types
+    /// </summary>
     public abstract class Plane
     {
-        public string _model;
-        public int _maxSpeed;
-        public int _maxFlightDistance;
-        public int _maxLoadCapacity;
+        private string model;
+        private int maxSpeed;
+        private int maxFlightDistance;
+        private int maxLoadCapacity;
 
         public Plane(string model, int maxSpeed, int maxFlightDistance, int maxLoadCapacity)
         {
-            _model = model;
-            _maxSpeed = maxSpeed;
-            _maxFlightDistance = maxFlightDistance;
-            _maxLoadCapacity = maxLoadCapacity;
+            this.model = model;
+            this.maxSpeed = maxSpeed;
+            this.maxFlightDistance = maxFlightDistance;
+            this.maxLoadCapacity = maxLoadCapacity;
         }
 
-        public string GetModel()
+        public string Model
         {
-            return _model;
+            get { return model; }
         }
 
-        public int GetMS()
+        public int MaxSpeed
         {
-            return _maxSpeed;
+            get { return maxSpeed; }
         }
 
-        public int MAXFlightDistance()
+        public int MAXFlightDistance
         {
-            return _maxFlightDistance;
+            get { return maxFlightDistance; }
         }
 
-        public int MAXLoadCapacity()
+        public int MAXLoadCapacity
         {
-            return _maxLoadCapacity;
+            get { return maxLoadCapacity; }
         }
 
         public override string ToString()
         {
             return "Plane{" +
-                "model='" + _model + '\'' +
-                ", maxSpeed=" + _maxSpeed +
-                ", maxFlightDistance=" + _maxFlightDistance +
-                ", maxLoadCapacity=" + _maxLoadCapacity +
+                "model='" + model + '\'' +
+                ", maxSpeed=" + maxSpeed +
+                ", maxFlightDistance=" + maxFlightDistance +
+                ", maxLoadCapacity=" + maxLoadCapacity +
                 '}';
         }
 
@@ -51,21 +54,20 @@ namespace Aircompany.Planes
         {
             var plane = obj as Plane;
             return plane != null &&
-                   _model == plane._model &&
-                   _maxSpeed == plane._maxSpeed &&
-                   _maxFlightDistance == plane._maxFlightDistance &&
-                   _maxLoadCapacity == plane._maxLoadCapacity;
+                   model == plane.model &&
+                   maxSpeed == plane.maxSpeed &&
+                   maxFlightDistance == plane.maxFlightDistance &&
+                   maxLoadCapacity == plane.maxLoadCapacity;
         }
 
         public override int GetHashCode()
         {
             var hashCode = -1043886837;
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(_model);
-            hashCode = hashCode * -1521134295 + _maxSpeed.GetHashCode();
-            hashCode = hashCode * -1521134295 + _maxFlightDistance.GetHashCode();
-            hashCode = hashCode * -1521134295 + _maxLoadCapacity.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(model);
+            hashCode = hashCode * -1521134295 + maxSpeed.GetHashCode();
+            hashCode = hashCode * -1521134295 + maxFlightDistance.GetHashCode();
+            hashCode = hashCode * -1521134295 + maxLoadCapacity.GetHashCode();
             return hashCode;
         }        
-
     }
 }

@@ -5,6 +5,9 @@ using System.Collections.Generic;
 
 namespace Aircompany
 {
+    /// <summary>
+    /// Starts the console application
+    /// </summary>
     public class Runner
     {
         public static List<Plane> planes = new List<Plane>() {
